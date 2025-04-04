@@ -1,0 +1,221 @@
+nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3.5rem 10rem;
+    z-index: 10;
+
+    & a {
+        position: relative;
+        overflow: hidden;
+        font: var(--button);
+        padding: 0.75rem 1.25rem;
+        background-color: var(--pink-dark);
+        border-radius: .5rem;
+
+        & span {
+            position: relative;
+            z-index: 1;
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 10px;
+            height: 10px;
+            background-color: var(--pink-base);
+            border-radius: 100%;
+            transform: translate(-50%, -50%) scale(0);
+            transition: transform 1s ease-in-out, opacity 1s ease-in-out;
+            opacity: 0;
+            z-index: 0;
+        }
+
+        &:hover::before {
+            transform: translate(-50%, -50%) scale(10);
+            opacity: 1;
+        }
+    }
+}
+
+header {
+    width: 100%;
+    height: 59.25rem;
+    background-image: url(../images/hero-background.png);
+    background-position: center;
+    background-size: cover;
+
+    opacity: 0;
+    animation: fadeIn 1.5s ease-in-out forwards;
+
+    & .title {
+        text-align: center;
+
+        & h1 {
+            font: var(--title-lg);
+            max-width: 41rem;
+            margin-inline: auto;
+            margin-bottom: 2rem;
+            padding-top: 17.375rem;
+
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1.5s .5s ease-in-out forwards;
+        }
+
+        & p {
+            font: var(--body-lg);
+            color: var(--text-body);
+            max-width: 35.5rem;
+            margin-inline: auto;
+
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s ease-in-out forwards;
+            animation-delay: 1s;
+        }
+    }
+}
+
+/* Animação do fade-in do header */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Animação do título subindo */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.header-bottom {
+    position: relative;
+    max-width: 75rem;
+    margin-inline: auto;
+    text-align: center;
+    margin-top: 6rem;
+
+    & .img-appear {
+        pointer-events: auto;
+        /* Garante que a imagem receba hover */
+        opacity: 0;
+        transform: scale(0);
+        transition: transform 0.3s ease-in-out, opacity 0.5s ease;
+    }
+
+    & img[src*="spellbook"] {
+        width: 5.5rem;
+        height: 5.5rem;
+        transform: rotate(20deg);
+    }
+
+    & img[src*="ouija"] {
+        position: absolute;
+        bottom: -5rem;
+        left: 2.5rem;
+        width: 5rem;
+        height: 5rem;
+        transform: rotate(100deg);
+    }
+
+    & img[src*="crystal"] {
+        position: absolute;
+        bottom: -5rem;
+        right: 1.5rem;
+        width: 4.5rem;
+        height: 4.5rem;
+        transform: rotate(-20deg);
+    }
+
+    &:hover .spellbook {
+        opacity: 1;
+        transform: rotate(20deg) scale(1);
+        transition-delay: 0.5s;
+    }
+    
+    &:hover .ouija {
+        opacity: 1;
+        transform: rotate(100deg) scale(1);
+        transition-delay: 1s;
+    }
+    
+    &:hover .crystal {
+        opacity: 1;
+        transform: rotate(-20deg) scale(1);
+        transition-delay: 1.5s;
+    }
+    
+    & .spellbook:hover {
+        transform: rotate(30deg) scale(1.1);
+        transition-delay: 0s;
+    }
+    
+    & .ouija:hover {
+        transform: rotate(110deg) scale(1.1);
+        transition-delay: 0s;
+    }
+    
+    & .crystal:hover {
+        transform: rotate(-3deg) scale(1.1);
+        transition-delay: 0s;
+    }
+    
+    & p>* {
+        font: var(--subtitle);
+        color: var(--text-body);
+        opacity: 0.5;
+        transition: opacity 200ms ease, color 200ms ease;
+    }
+    
+    /* Grupo 1: primeiro span e primeiro strong */
+    &:hover p> :nth-child(1),
+    &:hover p> :nth-child(2) {
+        opacity: 1;
+        transition-delay: 0.5s;
+    }
+    
+    &:hover p> :nth-child(2) {
+        color: var(--blue-light);
+    }
+    
+    /* Grupo 2: segundo span e segundo strong */
+    &:hover p> :nth-child(3),
+    &:hover p> :nth-child(4) {
+        opacity: 1;
+        transition-delay: 1s;
+    }
+    
+    &:hover p> :nth-child(4) {
+        color: var(--blue-light);
+    }
+    
+    /* Grupo 3: terceiro span e terceiro strong */
+    &:hover p> :nth-child(5),
+    &:hover p> :nth-child(6) {
+        opacity: 1;
+        transition-delay: 1.5s;
+    }
+    
+    &:hover p> :nth-child(6) {
+        color: var(--blue-light);
+    }
+}

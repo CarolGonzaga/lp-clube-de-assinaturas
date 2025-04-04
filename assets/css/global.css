@@ -33,16 +33,27 @@
 
     /* FONT */
     --ff-rale: "Raleway", sans-serif;
-    --title-lg: 700 3rem/100% var(--ff-rale);
-    --title-md: 700 2.5rem/100% var(--ff-rale);
-    --title-sm: 700 2rem/100% var(--ff-rale);
-    --title-xs: 700 1rem/100% var(--ff-rale);
+    --title-lg: 700 3rem var(--ff-rale);
+    --title-md: 700 2.5rem var(--ff-rale);
+    --title-sm: 700 2rem var(--ff-rale);
+    --title-xs: 700 1rem var(--ff-rale);
     --subtitle: 500 2rem/200% var(--ff-rale);
     --body-lg: 400 1.25rem/140% var(--ff-rale);
     --body-md: 400 1rem/140% var(--ff-rale);
     --body-sm: 400 0.875rem/140% var(--ff-rale);
     --body-xs: 400 0.75rem/140% var(--ff-rale);
-    --button: 700 0.875rem/100% var(--ff-rale);
-    --link: 500 0.875rem/100% var(--ff-rale);
-    --tag: 700 0.625rem/100% var(--ff-rale);
+    --button: 700 0.875rem var(--ff-rale);
+    --link: 500 0.875rem var(--ff-rale);
+    --tag: 700 0.625rem var(--ff-rale);
+}
+
+html {
+    max-width: 90rem;
+    color: var(--text-title);
+    background-color: var(--shape-background);
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
 }
