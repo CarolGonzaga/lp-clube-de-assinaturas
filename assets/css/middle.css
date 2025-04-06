@@ -1,0 +1,249 @@
+.kit {
+
+    & .kit-title {
+        flex-direction: column;
+        margin-bottom: 13.875rem;
+
+        & div>h2 {
+            font: var(--title-sm);
+        }
+
+        & p {
+            color: var(--text-body);
+            font: var(--body-md);
+        }
+    }
+
+    & .product {
+        width: 100%;
+        position: relative;
+        font: var(--body-md);
+        margin-bottom: 40rem;
+
+        & img[src*="sarah"] {
+            width: 22rem;
+            height: auto;
+            z-index: 10;
+            position: relative;
+            filter: drop-shadow(0px 0px 25rem var(--pink-base));
+        }
+
+        & img:not([src*="sarah"]),
+        span {
+            position: absolute;
+            z-index: 1;
+            transition: transform 0.5s ease-out, opacity 0.3s;
+            opacity: 1;
+        }
+
+        /* POSIÇÃO INICIAL */
+        & img[src*="yellow"] {
+            width: 10.75rem;
+            transform: rotate(0);
+            left: 40rem;
+            top: 0rem;
+            z-index: 3;
+        }
+
+        & img[src*="purple"] {
+            width: 10.75rem;
+            transform: rotate(0);
+            left: 40rem;
+            top: 0rem;
+            z-index: 2;
+        }
+
+        & img[src*="pin"] {
+            width: 13.875rem;
+            transform: rotate(0);
+            left: 34rem;
+            top: 15rem;
+        }
+
+        & img[src*="seta-1"] {
+            left: 34rem;
+            top: 0rem;
+        }
+
+        & img[src*="seta-2"] {
+            left: 34rem;
+            top: 10rem;
+        }
+
+        & img[src*="seta-3"] {
+            left: 40rem;
+            top: 19rem;
+        }
+
+        & span:nth-child(9) {
+            left: 34rem;
+            top: 10rem;
+        }
+
+        & span:nth-child(10) {
+            left: 39rem;
+            top: 28rem;
+        }
+
+        & span:nth-child(11) {
+            left: 34rem;
+            top: 0rem;
+        }
+
+        /* POSIÇÃO FINAL */
+        & img[src*="sarah"]:hover~img[src*="yellow"] {
+            opacity: 1;
+            transition: transform 0.3s ease-out;
+            animation: bounce-effect-yellow 0.4s ease-out 0.3s forwards;
+            transform: translate(7.9rem, -5.5rem) rotate(12deg);
+        }
+
+        & img[src*="sarah"]:hover~img[src*="purple"] {
+            transform: translate(14rem, 1rem) rotate(22deg);
+            opacity: 1;
+        }
+
+        & img[src*="sarah"]:hover~img[src*="pin"] {
+            transform: translate(-16.5rem, 6.5rem) rotate(-8deg);
+            opacity: 1;
+        }
+
+        & img[src*="sarah"]:hover~img[src*="seta-1"] {
+            transform: translate(-16.2rem, -2.4rem);
+            opacity: 1;
+        }
+
+        & img[src*="sarah"]:hover~img[src*="seta-2"] {
+            transform: translate(-19rem, 6.5rem);
+            opacity: 1;
+        }
+
+        & img[src*="sarah"]:hover~img[src*="seta-3"] {
+            transform: translate(11.7rem, 9.5rem);
+            opacity: 1;
+        }
+
+        & img[src*="sarah"]:hover~span:nth-child(9) {
+            transform: translate(-20rem, 4.2rem);
+            opacity: 1;
+        }
+
+        & img[src*="sarah"]:hover~span:nth-child(10) {
+            transform: translate(7.7rem, 11.2rem);
+            opacity: 1;
+        }
+
+        & img[src*="sarah"]:hover~span:nth-child(11) {
+            transform: translate(-21rem, -5rem);
+            opacity: 1;
+        }
+    }
+}
+
+@media (width <=500px) {
+    .kit {
+        margin-bottom: 15.563rem;
+
+        & .kit-title {
+            flex-direction: column;
+            margin-bottom: 7.361rem;
+
+            & img {
+                height: 3rem;
+                width: 3rem;
+            }
+
+            & div>h2 {
+                font: 700 1.5rem var(--ff-rale);
+            }
+
+            & p {
+                font-size: 0.875rem;
+            }
+        }
+
+        & .product {
+            margin-bottom: 0;
+
+            & img[src*="sarah"] {
+                height: 12.98rem;
+                width: auto;
+                z-index: 10;
+                position: relative;
+                filter: drop-shadow(0px 0px 15rem var(--pink-base));
+                pointer-events: none;
+            }
+
+            & img:not([src*="sarah"]),
+            span {
+                position: absolute;
+                transition: none;
+                opacity: 1;
+                z-index: 1;
+            }
+
+            /* POSIÇÃO ESTÁTICA */
+            & img[src*="yellow"] {
+                width: auto;
+                height: 12.98rem;
+                transform: rotate(11.72deg);
+                left: 15rem;
+                top: -2.4rem;
+                z-index: 3;
+            }
+
+            & img[src*="purple"] {
+                width: auto;
+                height: 12.98rem;
+                transform: rotate(15deg);
+                left: 17em;
+                top: 0rem;
+                z-index: 2;
+            }
+
+            & img[src*="pin"] {
+                width: 4.681rem;
+                transform: rotate(-7.55deg);
+                left: 2.9rem;
+                top: 10.5rem;
+            }
+
+            & img[src*="seta-1"] {
+                width: 3.671rem;
+                left: 3rem;
+                top: -1rem;
+            }
+
+            & img[src*="seta-2"] {
+                width: 2.2rem;
+                left: 2rem;
+                top: 9rem;
+            }
+
+            & img[src*="seta-3"] {
+                width: 3rem;
+                left: 17.5rem;
+                top: 12.3rem;
+            }
+
+            & span {
+                font-size: 0.625rem;
+            }
+
+            & span:nth-child(9) {
+                left: 1rem;
+                top: 7.5rem;
+            }
+
+            & span:nth-child(10) {
+                left: 14.3rem;
+                top: 15.3rem;
+            }
+
+            & span:nth-child(11) {
+                left: 1rem;
+                top: -2.5rem;
+            }
+        }
+    }
+}

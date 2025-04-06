@@ -1,0 +1,128 @@
+footer {
+    margin-top: 6.5rem;
+    margin-inline: auto;
+    background: url(../images/book-trace-background.png) no-repeat center/cover;
+    padding-block: 10.625rem 6.375rem;
+    grid-auto-flow: column;
+    gap: 2.5rem;
+
+    & .left {
+        max-width: var(--max-width);
+        justify-self: center;
+        justify-content: center;
+        gap: .75rem;
+
+        & img[src*="logo"] {
+            width: 16.5rem;
+        }
+
+        & .social-icons {
+            flex-direction: row;
+            width: 100%;
+            border-top: 1px solid var(--shape-stroke);
+            padding-top: .75rem;
+
+            & a {
+                z-index: 0;
+                position: relative;
+                border-radius: 50%;
+                width: 3rem;
+                height: 3rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                & svg {
+                    width: 24px;
+                    height: 24px;
+
+                    & path {
+                        transition: fill 400ms ease;
+                    }
+                }
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    z-index: -1;
+                    width: inherit;
+                    height: inherit;
+                    background-color: var(--shape-stroke);
+                    top: 0;
+                    left: 0;
+                    border-radius: inherit;
+                    scale: 0;
+                    transition: scale 200ms ease;
+                }
+
+                &:hover {
+                    & svg path {
+                        fill: #FFFFFF;
+                    }
+
+                    &::after {
+                        scale: 100%;
+                    }
+                }
+
+
+            }
+
+        }
+    }
+
+    & .right {
+        justify-self: center;
+        grid-template-columns: 1fr 1fr;
+        margin-inline: auto;
+
+        & div:nth-child(2) {
+            margin-left: 3.5rem;
+        }
+
+        & h4 {
+            color: var(--text-body);
+            font: var(--title-xs);
+            margin-bottom: 1.25rem;
+        }
+
+        & ul {
+            gap: 1rem;
+
+            & li {
+                font: var(--link);
+                color: var(--blue-light);
+                transition: color 400ms ease;
+
+                &:hover {
+                    color: var(--text-body);
+                }
+
+            }
+        }
+    }
+
+}
+
+@media (width <= 500px) {
+    footer {
+        margin-top: 6.5rem;
+        padding-block: 6rem 2rem;
+        grid-auto-flow: row;
+        gap: 2.5rem;
+
+        & .left {
+            gap: .75rem;
+
+            & img[src*="logo"] {
+                width: 10rem;
+                justify-self: center;
+            }
+
+            & .social-icons {
+                width: 20rem;
+                justify-content: space-between;
+            }
+        }
+    }
+}

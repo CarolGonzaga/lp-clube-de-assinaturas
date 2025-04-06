@@ -1,2 +1,6 @@
 @import url(global.css);
+@import url(utility.css);
 @import url(header.css);
+@import url(middle.css);
+@import url(prices.css);
+@import url(footer.css);

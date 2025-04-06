@@ -48,12 +48,22 @@
 }
 
 html {
-    max-width: 90rem;
     color: var(--text-title);
+    font-family: var(--ff-rale);
+}
+
+body {
+    position: relative;
+    margin-inline: auto;
+    max-width: 90rem;
     background-color: var(--shape-background);
 }
 
 a {
     color: inherit;
     text-decoration: none;
+}
+
+ul[role="list"] {
+    list-style: none;
 }

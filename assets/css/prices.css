@@ -1,0 +1,283 @@
+.prices {
+    background: url(../images/pricing-background.png) no-repeat center/cover;
+    position: relative;
+
+    &::before {
+        content: "";
+        position: absolute;
+        width: 80%;
+        height: 80%;
+        left: 8rem;
+        border-radius: 5rem;
+        background: var(--shape-base);
+        z-index: -1;
+        filter: blur(200px);
+
+    }
+
+    & h2 {
+        z-index: 1;
+        text-align: center;
+        margin-inline: auto;
+        font: var(--title-sm);
+        margin-bottom: 4rem;
+    }
+
+    & .cards {
+        z-index: 1;
+        margin-inline: auto;
+        padding-block: 5rem 8rem;
+        justify-content: center;
+        overflow: hidden;
+        flex-direction: row;
+
+        & img[src*="star"] {
+            aspect-ratio: 1;
+            width: 1.5rem;
+            transition: rotate 500ms;
+
+        }
+
+        & img+img[src*="star"] {
+            width: .875rem;
+        }
+
+
+        & .card {
+            width: 18rem;
+            height: 26rem;
+            background-color: var(--shape-base);
+            border: 1px solid var(--shape-stroke);
+            border-radius: 1.5rem;
+            display: grid;
+            padding: 2rem;
+            transition: scale 600ms ease, background-color 500ms ease;
+
+            & span:nth-child(1) {
+                color: var(--blue-light);
+                font: var(--title-xs);
+            }
+
+            /* MENSAL */
+            &:nth-child(1) {
+                rotate: -8deg;
+                transform: translate(-.45rem, 3rem);
+                z-index: 0;
+                position: relative;
+
+                & .s1 {
+                    position: absolute;
+                    top: -1rem;
+                    left: -1.5rem;
+                }
+
+                & .s2 {
+                    position: absolute;
+                    left: -2rem;
+                    top: 1rem;
+                }
+            }
+
+            /* SEMESTRAL */
+            &:nth-child(2) {
+                z-index: 1;
+                position: relative;
+                border-color: var(--shape-hover);
+                background-color: var(--shape-hover);
+
+                & img[src*="Bunny"] {
+                    position: absolute;
+                    top: -3.25rem;
+                    left: 2rem;
+                }
+
+                & .flex {
+                    justify-content: space-between;
+
+                    & span:nth-child(1) {
+                        color: var(--pink-light);
+                        font: var(--title-xs);
+                    }
+
+                    & strong {
+                        border-radius: 2rem;
+                        text-align: center;
+                        padding: .5rem 1.25rem;
+                        background-color: var(--shape-stroke);
+                        color: var(--text-body);
+                        font: var(--tag);
+                        text-transform: uppercase;
+                    }
+                }
+
+
+                & ul[role="list"] {
+                    margin-top: 3rem;
+                }
+
+                & a {
+                    text-wrap: nowrap;
+                    background-color: var(--pink-dark);
+
+                    &::before {
+                        background-color: var(--pink-base);
+                    }
+                }
+            }
+
+            /* ANUAL */
+            &:nth-child(3) {
+                rotate: 8deg;
+                transform: translate(.45rem, 3rem);
+                z-index: 0;
+                position: relative;
+
+                & ul[role="list"] {
+                    margin-top: 2rem;
+                }
+
+                & .s3 {
+                    position: absolute;
+                    bottom: -1.5rem;
+                    right: -1.5rem;
+                }
+
+                & .s4 {
+                    position: absolute;
+                    right: 0.5rem;
+                    bottom: -2rem;
+                }
+            }
+
+            & h3 {
+                margin-block: 1.5rem .5rem;
+                font: var(--title-md);
+
+                & small {
+                    font: var(--title-xs);
+                }
+
+            }
+
+            & h3+span {
+                font: var(--body-sm);
+                color: var(--text-label);
+                opacity: 0.9;
+            }
+
+            & ul[role="list"] {
+                margin-block: 5rem 1.5rem;
+                display: grid;
+                gap: .75rem;
+
+                & li {
+                    text-wrap: nowrap;
+                    display: flex;
+                    align-items: center;
+                    color: var(--text-label);
+                    font: var(--body-xs);
+                    gap: .5rem;
+
+                    & img {
+                        aspect-ratio: 1;
+                        width: .75rem;
+                    }
+                }
+            }
+
+            & a {
+                text-wrap: nowrap;
+                position: relative;
+                border-radius: .5rem;
+                background-color: var(--blue-dark);
+                padding: .75rem;
+                text-align: center;
+                font: var(--button);
+                z-index: 1;
+
+                &::before {
+                    content: "";
+                    position: absolute;
+                    background-color: var(--blue-mid);
+                    width: 100%;
+                    height: 100%;
+                    top: 0;
+                    left: 0;
+                    border-radius: inherit;
+                    z-index: -1;
+                    clip-path: circle(0%);
+                    transition: clip-path 500ms ease;
+                }
+
+                &:hover::before {
+                    clip-path: circle(100%);
+                }
+            }
+
+            &:hover {
+                scale: 1.05;
+                background-color: var(--shape-hover);
+                border-color: transparent;
+                z-index: 2;
+                filter: drop-shadow(0px 0px 3rem var(--shape-hover));
+
+                & .s1,
+                & .s2 {
+                    rotate: -30deg;
+                }
+
+                & .s3,
+                & .s4 {
+                    rotate: 30deg;
+                }
+            }
+        }
+    }
+}
+
+.cards:has(.card:hover) .card:not(:hover) {
+    background-color: var(--shape-base);
+    scale: 1;
+    z-index: 0;
+    transition: background-color 300ms ease, border-color 300ms ease;
+}
+
+@media (width <=500px) {
+
+    .prices {
+        & h2 {
+            margin-bottom: 0;
+        }
+
+        & .cards {
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+            overflow: visible;
+            padding-block: 3rem 6.5rem;
+
+            & .card {
+                width: 17rem;
+                height: 25rem;
+
+                /* MENSAL */
+                &:nth-child(1) {
+                    rotate: 0deg;
+                    transform: none;
+                }
+
+                /* ANUAL */
+                &:nth-child(3) {
+                    rotate: 0deg;
+                    transform: none;
+                }
+
+                &:hover {
+                    scale: none;
+                    border-color: transparent;
+                }
+            }
+        }
+    }
+}
