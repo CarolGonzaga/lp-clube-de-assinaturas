@@ -52,19 +52,23 @@
             display: grid;
             padding: 2rem;
             transition: scale 600ms ease, background-color 500ms ease;
+            position: relative;
 
             & span:nth-child(1) {
                 color: var(--blue-light);
                 font: var(--title-xs);
             }
 
+            &:nth-child(1),
+            &:nth-child(3) {
+                position: absolute;
+                rotate: 0deg;
+                transform: none;
+                z-index: 0;
+            }
+
             /* MENSAL */
             &:nth-child(1) {
-                rotate: -8deg;
-                transform: translate(-.45rem, 3rem);
-                z-index: 0;
-                position: relative;
-
                 & .s1 {
                     position: absolute;
                     top: -1rem;
@@ -127,11 +131,6 @@
 
             /* ANUAL */
             &:nth-child(3) {
-                rotate: 8deg;
-                transform: translate(.45rem, 3rem);
-                z-index: 0;
-                position: relative;
-
                 & ul[role="list"] {
                     margin-top: 2rem;
                 }
@@ -242,6 +241,41 @@
     transition: background-color 300ms ease, border-color 300ms ease;
 }
 
+.prices .cards:hover .card:nth-child(1) {
+    animation: slideOutCard1 0.5s ease-out forwards;
+}
+
+.prices .cards:hover .card:nth-child(3) {
+    animation: slideOutCard3 0.5s ease-out forwards;
+}
+
+/* Keyframes para o card 1 (Mensal) */
+@keyframes slideOutCard1 {
+    from {
+        transform: none;
+        rotate: 0deg;
+    }
+
+    to {
+        transform: translate(-19rem, 3rem);
+        rotate: -8deg;
+    }
+}
+
+/* Keyframes para o card 3 (Anual) */
+@keyframes slideOutCard3 {
+    from {
+        transform: none;
+        rotate: 0deg;
+    }
+
+    to {
+        transform: translate(19rem, 3rem);
+        rotate: 8deg;
+    }
+}
+
+
 @media (width <=500px) {
 
     .prices {
@@ -265,12 +299,14 @@
                 &:nth-child(1) {
                     rotate: 0deg;
                     transform: none;
+                    position: relative;
                 }
 
                 /* ANUAL */
                 &:nth-child(3) {
                     rotate: 0deg;
                     transform: none;
+                    position: relative;
                 }
 
                 &:hover {
@@ -279,5 +315,13 @@
                 }
             }
         }
+    }
+
+    .prices .cards:hover .card:nth-child(1) {
+        animation: none;
+    }
+    
+    .prices .cards:hover .card:nth-child(3) {
+        animation: none;
     }
 }
